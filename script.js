@@ -38,12 +38,24 @@ const init = function () {
   current0El.textContent = 0;
   current1El.textContent = 0;
 
+  document.querySelector('.pl0').textContent = play0;
+  document.querySelector('.pl1').textContent = play1;
+
+  btnHold.classList.remove('hidden');
+
+  btnRoll.classList.remove('hidden');
+
   diceEl.classList.add('hidden');
   player0El.classList.remove('player--winner');
   player1El.classList.remove('player--winner');
   player0El.classList.add('player--active');
   player1El.classList.remove('player--active');
 };
+
+//data reading
+const play0 = prompt('Enter the name of player 1');
+const play1 = prompt('Enter the name of player 2');
+
 init();
 
 const switchPlayer = function () {
@@ -94,10 +106,23 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     //2 check for >=100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 25) {
       //finish the game
       playing = false;
+
+      document.querySelector(`.pl${activePlayer}`).textContent =
+        activePlayer == 0 ? `${play0} won` : `${play1} won`;
+
       diceEl.classList.add('hidden');
+
+      btnHold.classList.add('hidden');
+
+      btnRoll.classList.add('hidden');
+
+      current0El.textContent = 0;
+
+      current1El.textContent = 0;
+
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
