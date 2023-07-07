@@ -1,0 +1,14 @@
+{
+  "name": "dice-game",
+  "version": "1.0.0",
+  "description": "A game of luck",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "author": "shashank_hl",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.9.3"
+  }
+}
