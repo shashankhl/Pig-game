@@ -8,29 +8,68 @@
     <title>Pig Game</title>
   </head>
   <body>
-    <main>
-      <section class="player player--0 player--active">
-        <h2 class="name" id="name--0">Player 1</h2>
-        <p class="score" id="score--0">0</p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--0">0</p>
-        </div>
-      </section>
-      <section class="player player--1">
-        <h2 class="name" id="name--1">Player 2</h2>
-        <p class="score" id="score--1">0</p>
-        <div class="current">
-          <p class="current-label">Current</p>
-          <p class="current-score" id="current--1">0</p>
-        </div>
-      </section>
+    <div class="container">
+      <main>
+        <section class="player player--0 player--active">
+          <h2 class="name pl0" id="name--0">Player 1</h2>
+          <p class="score" id="score--0">0</p>
+          <div class="current">
+            <p class="current-label">Current</p>
+            <p class="current-score" id="current--0">0</p>
+          </div>
+        </section>
+        <section class="player player--1">
+          <h2 class="name pl1" id="name--1">Player 2</h2>
+          <p class="score" id="score--1">0</p>
+          <div class="current">
+            <p class="current-label">Current</p>
+            <p class="current-score" id="current--1">0</p>
+          </div>
+        </section>
 
-      <img src="dice-5.png" alt="Playing dice" class="dice" />
-      <button class="btn btn--new">🔄 New game</button>
-      <button class="btn btn--roll">🎲 Roll dice</button>
-      <button class="btn btn--hold">📥 Hold</button>
-    </main>
+        <img src="dice-5.png" alt="Playing dice" class="dice" />
+
+        <button class="btn btn--gameRule show-modal">🎮 GAME RULES</button>
+        <button class="btn btn--new">🔄 New game</button>
+        <button class="btn btn--roll">🎲 Roll dice</button>
+        <button class="btn btn--hold">📥 Hold</button>
+        <button class="btn btn--tar">🎯Target</button>
+
+        <div class="modal hidden">
+          <button class="close-modal">&times;</button>
+          <h1><center>📑</center></h1>
+          <p class="p-gameRule">
+            On a turn, a player rolls the die 🎲 repeatedly. The goal is to
+            accumulate as many points as possible, adding up (hold) the numbers
+            rolled on the die 🎲. However, if a player rolls a <span>1</span>,
+            the player's turn is over and any points they have accumulated
+            during this turn are forfeited. Rolling a <span>1</span> doesn't
+            wipe out your entire score from previous turns, just the total
+            earned during that particular roll. A player has to choose to hold
+            (stop rolling the die 🎲) if they do not want to take a chance of
+            rolling a
+            <span>1</span>
+            and losing all of their points from this turn. If the player chooses
+            to hold, all of the points rolled during that turn are added to his
+            or her score. When a player reaches a total of
+            <span>Target🎯</span> points, the game ends and that player is the
+            winner 🏆.
+          </p>
+        </div>
+        <div class="overlay hidden"></div>
+      </main>
+    </div>
+    <p class="copyright">
+      &copy; Copyright by
+      <a
+        class="twitter-link"
+        target="_blank"
+        href="http://www.linkedin.com/in/shashank-hl"
+        ><b>Shashank H L</b></a
+      >
+      . "Dice in hand, luck on my side, I embrace the unknown, with every roll I ride."
+    </p>
+  </div>
     <script src="script.js"></script>
   </body>
 </html>

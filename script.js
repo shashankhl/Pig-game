@@ -12,6 +12,7 @@ const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+const btnTar = document.querySelector('.btn--tar');
 
 //starting condition
 /*score0El.textContent = 0;
@@ -40,10 +41,13 @@ const init = function () {
 
   document.querySelector('.pl0').textContent = play0;
   document.querySelector('.pl1').textContent = play1;
+  btnTar.textContent = `🎯Target ${score}`;
 
   btnHold.classList.remove('hidden');
 
   btnRoll.classList.remove('hidden');
+
+  btnTar.classList.remove('hidden');
 
   diceEl.classList.add('hidden');
   player0El.classList.remove('player--winner');
@@ -53,10 +57,18 @@ const init = function () {
 };
 
 //data reading
+const score = Number(prompt('Enter the target🎯 set to score (Number 1-100)'));
 const play0 = prompt('Enter the name of player 1');
 const play1 = prompt('Enter the name of player 2');
 
-init();
+if (score) {
+  init();
+} else {
+  alert('You need to set target🎯 in order to play');
+  setTimeout(function () {
+    location.reload();
+  }, 1000);
+}
 
 const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -106,18 +118,21 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     //2 check for >=100
-    if (scores[activePlayer] >= 25) {
+
+    if (scores[activePlayer] >= score) {
       //finish the game
       playing = false;
 
       document.querySelector(`.pl${activePlayer}`).textContent =
-        activePlayer == 0 ? `${play0} won` : `${play1} won`;
+        activePlayer == 0 ? `${play0} won 🏆` : `${play1} won 🏆`;
 
       diceEl.classList.add('hidden');
 
       btnHold.classList.add('hidden');
 
       btnRoll.classList.add('hidden');
+
+      btnTar.classList.add('hidden');
 
       current0El.textContent = 0;
 
@@ -137,3 +152,36 @@ btnHold.addEventListener('click', function () {
 });
 
 btnNew.addEventListener('click', init);
+
+// btnTar.addEventListener('click', function () {});
+
+// Game rules
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnclosemodal = document.querySelector('.close-modal');
+const btnsopenmodal = document.querySelectorAll('.show-modal');
+//console.log(btnsopenmodal.length);
+
+const openmodal = function () {
+  console.log('btn clicked');
+  modal.classList.remove('hidden');
+  overlay.classList.remove('hidden');
+  //modal.style.display = 'block';
+};
+
+const closemodal = function () {
+  modal.classList.add('hidden');
+  overlay.classList.add('hidden');
+};
+
+for (let i = 0; i < btnsopenmodal.length; i++)
+  btnsopenmodal[i].addEventListener('click', openmodal);
+
+btnclosemodal.addEventListener('click', closemodal);
+
+overlay.addEventListener('click', closemodal);
+
+document.addEventListener('keydown', function (e) {
+  console.log('key');
+  console.log(e.key);
+});

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP&display=swap');
 
 * {
   margin: 0;
@@ -129,14 +130,22 @@ main {
   margin-right: 0.7rem;
 }
 
+.btn--gameRule {
+  top: 2rem;
+}
+
 .btn--new {
-  top: 4rem;
+  top: 8.5rem;
 }
 .btn--roll {
   top: 39.3rem;
 }
 .btn--hold {
   top: 46.1rem;
+}
+
+.btn--tar {
+  top: 52.6rem;
 }
 
 .btn:active {
@@ -151,7 +160,7 @@ main {
 .dice {
   position: absolute;
   left: 50%;
-  top: 16.5rem;
+  top: 18.5rem;
   transform: translateX(-50%);
   height: 10rem;
   box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
@@ -168,4 +177,92 @@ main {
 
 .hidden {
   display: none;
+}
+
+/* Game Rules */
+
+.close-modal {
+  position: absolute;
+  top: 1.2rem;
+  right: 2rem;
+  font-size: 5rem;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+
+  background-color: white;
+  padding: 6rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 5;
+}
+
+.p-gameRule {
+  text-align: justify;
+}
+
+.container {
+  /* margin: auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+/* link  */
+.copyright {
+  margin-top: auto;
+  font-size: 1.8rem;
+  text-align: center;
+  color: rgb(92, 175, 176);
+  position: absolute;
+  bottom: 0.5rem;
+}
+
+.twitter-link:link,
+.twitter-link:visited {
+  color: rgb(58, 21, 180);
+  transition: all 0.2s;
+}
+
+.twitter-link:hover,
+.twitter-link:active {
+  color: rgb(106, 177, 172);
+}
+
+.btn:hover {
+  font-weight: 600;
 }
